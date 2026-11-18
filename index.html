@@ -326,13 +326,10 @@
             }
 
             .visit-counter strong {
-                color: #8fa89a;
+                color: #65df91 !important;
                 font-variant-numeric: tabular-nums
             }
 
-            .visit-counter[hidden] {
-                display: none
-            }
         </style>
     </head>
     <body>
@@ -341,7 +338,7 @@
         </noscript>
         <main class="wrap">
             <h1>Blood & Bones Dino-Builds</h1>
-            <p class="sub">22 aktuell auf Public Evrima spielbare Arten, jeweils als PvP-, Survival- oder Nesting-Linie. Die 16 Positionen sind in Standardleben und drei Entomb-Stufen gegliedert.</p>
+            <p class="sub">Für alle spielbaren Arten, jeweils als PvP-, Survival- oder Nesting-Linie. Die 16 Mutationen sind in Standardleben und drei Entomb-Stufen gegliedert.</p>
             <div class="notice">
                 <b>Wichtig:</b> Dies ist eine Meta-orientierte Planungshilfe für Patch 0.21.784, keine offizielle Tierliste. Mutation-Pools können je Spezies, Geschlecht, Slot, Serverstand und Patch abweichen. Wenn eine andere empfohlene Mutation nicht angeboten wird, nutze die angezeigte Alternative und prüfe den aktuellen Ingame-Hover.
             </div>
@@ -383,9 +380,9 @@
             </div>
             <div id="build"></div>
             <footer>
-                Quellenbasis: Blood & Bones Dinodex/Mutationdex, Evrima Quick Guide, öffentliche Patch-/Serverdaten. Erstellt 18.11.2026. Mutationsempfehlungen sind Community-/Meta-Heuristik und müssen nach Balance-Patches neu bewertet werden. Tasten entsprechen den Standardbelegungen; Manual Alt Attack und eigene Keybinds können abweichen. ~ Made by Kiyutisa
-                <div class="visit-counter" id="visitCounter" hidden>
-                    Seitenaufrufe: <strong id="visitCount">…</strong>
+                Quellenbasis: Blood & Bones Dinodex/Mutationdex, Evrima Quick Guide, öffentliche Patch-/Serverdaten. Mutationsempfehlungen sind Community-/Meta-Heuristik und müssen nach Balance-Patches neu bewertet werden. Tasten entsprechen den Standardbelegungen; Manual Alt Attack und eigene Keybinds können abweichen. ~ Made by Kiyutisa
+                <div class="visit-counter" id="visitCounter">
+                    👁 Seitenaufrufe: <strong id="visitCount">…</strong>
                 </div>
             </footer>
         </main>
@@ -740,10 +737,11 @@
                     count.textContent = value.toLocaleString('de-DE');
                     box.hidden = false
                 }
-                ).catch( () => {
-                    box.hidden = true
-                }
-                );
+                )
+                .catch(() => {
+                    count.textContent = 'derzeit nicht abrufbar';
+                    box.hidden = false;
+                });
             }
             )();
         </script>
